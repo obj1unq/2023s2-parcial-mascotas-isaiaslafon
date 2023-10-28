@@ -1,0 +1,104 @@
+import mascotas.* 
+describe "mascotas" {
+	
+	//PUNTO 1
+//	const spike = //un perro con guardia 40 
+//	const sam = // un perro labrador con guardia 15
+//	const silvestre = // un gato con porcentaje de amor 80% y nivel de seguridad 23
+//	const tom = // un gato new Gato(porcentajeAmor=0.20, seguridad=12)
+//	const pluto = // un Perro con guardia 15
+//	const droopy = // un perro con guardia 30
+//	const tweety = // un canario 
+//	const woody = // un canario 
+//	
+//	const atahualpa = //un dueño con edad 50, afecto 10, y sus mascotas son silvestre y woody. Para el punto 2 es sensible
+//	const mercedes = //una dueña con edad 40, afecto 20, y sus mascotas son spike, sam  y droopy. Para el punto 2 es intensa 
+//	const teresa = //una dueña con edad 60, afecto 15, y tiene solo a tweety como mascota. Para el punto 2 es cálida  
+//	const soledad = //una dueña con edad 16, afecto 35, y sus mascotas son tom y pluto. Para el punto 2 es hipersensible
+	
+	//PUNTO 2 (Entra en juego el perfil de cada dueño, atahuala es sensible, mercedes intensa, teresa cálida y soledad hipersensible
+	
+	//PUNTO 3 No se agregan nuevos objetos
+	
+	//PUNTO 4
+//	const clubDuenios = // Un club cutos miembros son atahualpa, mercedes, teresa, soledad
+	
+//	test "1.1 nivel de amor" {
+//		assert.equals(40, el amor de spike por mercedes)
+//		assert.equals(45, el amor de sam por mercedes)
+//		assert.equals(8, el amor de silvestre por atahualpa)
+//		assert.equals(0, el amor de tweety por teresa)
+//	}
+
+//	test "1.2 nivel de diversion" {
+//		assert.equals(30, la diversion de spike por mercedes)
+//		assert.equals(30, la diversion de sam por mercedes)
+//		assert.equals(15, la diversion de silvestre por atahualpa)
+//		assert.equals(20, la diversion de tom por soledad)	
+//		assert.equals(5, la diversion de tweety por teresa)
+//	}
+
+//	test "1.3 nivel de seguridad" {
+//		assert.equals(40, la seguirdad de spike para mercedes))
+//		assert.equals(22, la seguirdad de pluto para soledad)
+//		assert.equals(30, la seguirdad de sam para mercedes)
+//		assert.equals(23, la seguirdad de silvestre para atahualpa)
+//		assert.equals(0, la seguirdad de tweety para teresa)
+//	}
+	
+//	test "2. felicidad" {
+//		asegurarse que atahualpa no es feliz  (no es alegre)
+//		asegurarse que soledad es feliz  
+//		assegurarse que teresa no es feliz (no es ni segura ni alegre)
+//		asegurarse que mercedes es feliz
+//	}
+
+//	test "3.1 entrenamiento sensible" {
+//		hacer que atahualpa entrene a sus mascotas 
+//		assert.equals(0.81, el porcentaje de amor que devuelve silvestre)
+//		assert.equals(1, cantidad de entrenamientos de silvestre)
+//		assert.equals(1, cantidad de entrenamientos de woody)
+//
+//		hacer que atahualpa entrene a sus mascotas 
+//		assert.equals(0.82, el porcentaje de amor que devuelve silvestre)
+//		assert.equals(2, cantidad de entrenamientos de silvestre)
+//		assert.equals(2, cantidad de entrenamientos de woody)
+//	}
+	
+//	test "3.2 entrenamiento hipersensible" {
+//		hacer que soledad entrene a sus mascotas 
+//		assert.equals(0.22, el porcentaje de amor que devuelve tom)
+//		assert.equals(18.5, el nivel de guardia de pluto)
+//		assert.equals(1, cantidad de entrenamientos de tom)
+//		assert.equals(1, cantidad de entrenamientos de  pluto)
+//
+//		hacer que soledad entrene a sus mascotas 
+//		assert.equals(0.24, el porcentaje de amor que devuelve tom)
+//		assert.equals(22, el nivel de guardia de pluto)
+//		assert.equals(2, cantidad de entrenamientos de tom)
+//		assert.equals(2, cantidad de entrenamientos de  pluto)
+//	}
+	
+//	test "3.3 entrenamiento calido" {
+//		hacer que teresa entrene a sus mascotas, tener en cuenta que no se puede porque su nivel de eficacia es menor a 9 (es cero) 
+//		assert.equals(0, cantidad de entrenamientos de tweety)
+//	} 
+	
+	
+//	test "3.4 entrenamiento intenso" {
+//		hacer que mercedes entrene a sus mascotas, tener en cuenta que no se puede porque es feliz 
+//		assert.equals(40, el nivel de guardia de spike)
+//		assert.equals(15, el nivel de guardia de sam)
+//		assert.equals(30, el nivel de guardia de droopy)
+//		assert.equals(0, cantidad de entrenamientos de spike)
+//		assert.equals(0, cantidad de entrenamientos de sam)
+//		assert.equals(0, cantidad de entrenamientos de droopy)
+//	}
+	
+//	test "4 club de dueños" {
+//		asegurarse que silvestre, spike, tweety y pluto son las mascotas más seguras del clubDuenios
+//		asegurarse que atahualpa, mercedes y soledad son los fanáticos del clubDuenios
+//	}
+
+	
+}
