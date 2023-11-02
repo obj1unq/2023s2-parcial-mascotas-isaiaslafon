@@ -1,0 +1,19 @@
+fe de erratas donde dice En seguridad de perros: 
+   -Seguridad: Los perros son los mejores guardianes. El nivel de seguridad es su capacidad
+     de guardia más un extra de 7 unidades en caso que el dueño sea menor de 18 años.
+     El nivel de guardia es un número que depende de cada perro: `guardia + (20 si es menor)`.
+La fórmula que aclara está en contradicción con el enunciado y es errónea. 
+debería decir: guardia + (7 si es menor)
+
+En los tests, en este en particular:
+//    test "3.3 entrenamiento calido" {
+//        hacer que soledad entrene a sus mascotas, tener en cuenta que no se puede porque su nivel de eficacia es menor a 9 (es cero) 
+//        assert.equals(0, cantidad de entrenamientos de tweety)
+//    }
+Debería decir hacer que teresa entrene sus mascotas, teresa es la persona cálida que usamos para testear
+
+En el test 3.4, donde dice:
+//        hacer que mercedes entrene a sus mascotas, tener en cuenta que no se puede porque no es feliz 
+Debería decir 
+//        hacer que mercedes entrene a sus mascotas, tener en cuenta que no se puede porque es feliz 
+ (Es feliz y por eso no puede)
