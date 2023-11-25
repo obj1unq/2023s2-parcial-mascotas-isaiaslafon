@@ -1,104 +1,172 @@
-import mascotas.* 
+import mascotasEstrategy.* 
+//import mascotasSubclasesDuenio.* 
+
 describe "mascotas" {
-	
 	//PUNTO 1
-//	const spike = //un perro con guardia 40 
-//	const sam = // un perro labrador con guardia 15
-//	const silvestre = // un gato con porcentaje de amor 80% y nivel de seguridad 23
-//	const tom = // un gato new Gato(porcentajeAmor=0.20, seguridad=12)
-//	const pluto = // un Perro con guardia 15
-//	const droopy = // un perro con guardia 30
-//	const tweety = // un canario 
-//	const woody = // un canario 
-//	
-//	const atahualpa = //un dueño con edad 50, afecto 10, y sus mascotas son silvestre y woody. Para el punto 2 es sensible
-//	const mercedes = //una dueña con edad 40, afecto 20, y sus mascotas son spike, sam  y droopy. Para el punto 2 es intensa 
-//	const teresa = //una dueña con edad 60, afecto 15, y tiene solo a tweety como mascota. Para el punto 2 es cálida  
-//	const soledad = //una dueña con edad 16, afecto 35, y sus mascotas son tom y pluto. Para el punto 2 es hipersensible
+	//un perro con guardia 40
+	const spike = new Perro(guardia = 40)
+	// un perro labrador con guardia 15  	
+	const sam = new PerroLabrador(guardia = 15)
+	// un gato con porcentaje de amor 80% y nivel de seguridad 23
+	const silvestre = new Gato(porcentajeAmor=0.80, seguridad=23)
+	// un gato new Gato(porcentajeAmor=0.20, seguridad=12) 
+	const tom = new Gato(porcentajeAmor=0.20, seguridad=12)
+	// un Perro con guardia 15
+	const pluto =  new Perro(guardia = 15)
+	// un perro con guardia 30
+	const droopy = new Perro(guardia = 30)
+	// un canario
+	const tweety =  new Canario()
+	//	un canario
+	const woody =  new Canario()
 	
+	//Para versión Subclases de Dueño.
+	//const atahualpa = new DuenioSensible(edad = 50, afecto = 10, mascotas= #{silvestre, woody})
+	//const mercedes = new DuenioCalido(edad = 40, afecto = 20, mascotas= #{spike, sam, droopy})
+	//const teresa = new DuenioCalido(edad = 60, afecto = 15, mascotas= #{tweety})
+	//const soledad = new DuenioHipersensible(edad = 16, afecto = 35, mascotas= #{tom, pluto})
+	
+	//un dueño con edad 50, afecto 10, y sus mascotas son silvestre y woody. Para el punto 2 es sensible
+	const atahualpa = new Duenio(edad = 50, afecto = 10, mascotas= #{silvestre, woody}, estado = animoSensible) 
+	//una dueña con edad 40, afecto 20, y sus mascotas son spike, sam  y droopy. Para el punto 2 es intensa 
+	const mercedes = new Duenio(edad = 40, afecto = 20, mascotas= #{spike, sam, droopy},estado = animoIntenso) 
+	//una dueña con edad 60, afecto 15, y tiene solo a tweety como mascota. Para el punto 2 es cálida  
+	const teresa = new Duenio(edad = 60, afecto = 15, mascotas= #{tweety}, estado = animoCalido) 
+	//una dueña con edad 16, afecto 35, y sus mascotas son tom y pluto. Para el punto 2 es hipersensible
+	const soledad = new Duenio(edad = 16, afecto = 35, mascotas= #{tom, pluto}, estado = animoHipersensible)
+	 
 	//PUNTO 2 (Entra en juego el perfil de cada dueño, atahuala es sensible, mercedes intensa, teresa cálida y soledad hipersensible
 	
 	//PUNTO 3 No se agregan nuevos objetos
 	
 	//PUNTO 4
-//	const clubDuenios = // Un club cutos miembros son atahualpa, mercedes, teresa, soledad
+	// Un club cutos miembros son atahualpa, mercedes, teresa, soledad
+	const clubDuenios = new Club(miembros = #{atahualpa, mercedes, teresa, soledad}) 
 	
-//	test "1.1 nivel de amor" {
-//		assert.equals(40, el amor de spike por mercedes)
-//		assert.equals(45, el amor de sam por mercedes)
-//		assert.equals(8, el amor de silvestre por atahualpa)
-//		assert.equals(0, el amor de tweety por teresa)
-//	}
+	test "1.1 nivel de amor" {
+		//el amor de spike por mercedes
+		assert.equals(40, spike.amor(mercedes))
+		//el amor de sam por mercedes
+		assert.equals(45, sam.amor(mercedes))
+		//el amor de silvestre por atahualpa
+		assert.equals(8, silvestre.amor(atahualpa))
+		//el amor de tweety por teresa
+		assert.equals(0, tweety.amor(teresa))
+	}
 
-//	test "1.2 nivel de diversion" {
-//		assert.equals(30, la diversion de spike por mercedes)
-//		assert.equals(30, la diversion de sam por mercedes)
-//		assert.equals(15, la diversion de silvestre por atahualpa)
-//		assert.equals(20, la diversion de tom por soledad)	
-//		assert.equals(5, la diversion de tweety por teresa)
-//	}
+	test "1.2 nivel de diversion" {
+		//la diversion de spike por mercedes
+		assert.equals(30, spike.diversion(mercedes))
+		//la diversion de sam por mercedes
+		assert.equals(30, sam.diversion(mercedes))
+		//la diversion de silvestre por atahualpa
+		assert.equals(15, silvestre.diversion(atahualpa))
+		//la diversion de tom por soledad
+		assert.equals(20, tom.diversion(soledad))	
+		//la diversion de tweety por teresa
+		assert.equals(5, tweety.diversion(teresa))
+	}
 
-//	test "1.3 nivel de seguridad" {
-//		assert.equals(40, la seguirdad de spike para mercedes))
-//		assert.equals(22, la seguirdad de pluto para soledad)
-//		assert.equals(30, la seguirdad de sam para mercedes)
-//		assert.equals(23, la seguirdad de silvestre para atahualpa)
-//		assert.equals(0, la seguirdad de tweety para teresa)
-//	}
+	test "1.3 nivel de seguridad" {
+		//la seguirdad de spike para mercedes
+		assert.equals(40, spike.seguridad(mercedes))
+		//la seguirdad de pluto para soledad
+		assert.equals(22, pluto.seguridad(soledad))
+		//la seguirdad de sam para mercedes
+		assert.equals(30, sam.seguridad(soledad))
+		//la seguirdad de silvestre para atahualpa
+		assert.equals(23, silvestre.seguridad(atahualpa))
+		//la seguirdad de tweety para teresa
+		assert.equals(0, tweety.seguridad(teresa))
+	}
 	
-//	test "2. felicidad" {
-//		asegurarse que atahualpa no es feliz  (no es alegre)
-//		asegurarse que soledad es feliz  
-//		assegurarse que teresa no es feliz (no es ni segura ni alegre)
-//		asegurarse que mercedes es feliz
-//	}
+	test "2. felicidad" {
+		//asegurarse que atahualpa no es feliz  (no es alegre)
+		assert.notThat(atahualpa.feliz())
+		//asegurarse que soledad es feliz  
+		assert.that(soledad.feliz())
+		//assegurarse que teresa no es feliz (no es ni segura ni alegre)
+		assert.notThat(teresa.feliz())
+		//asegurarse que mercedes es feliz
+		assert.that(mercedes.feliz())
+	}
 
-//	test "3.1 entrenamiento sensible" {
-//		hacer que atahualpa entrene a sus mascotas 
-//		assert.equals(0.81, el porcentaje de amor que devuelve silvestre)
-//		assert.equals(1, cantidad de entrenamientos de silvestre)
-//		assert.equals(1, cantidad de entrenamientos de woody)
-//
-//		hacer que atahualpa entrene a sus mascotas 
-//		assert.equals(0.82, el porcentaje de amor que devuelve silvestre)
-//		assert.equals(2, cantidad de entrenamientos de silvestre)
-//		assert.equals(2, cantidad de entrenamientos de woody)
-//	}
+	test "3.1 Entrenamiento sensible" {
+		//HACER QUE ATAHUALPA ENTRENE A SUS MASCOTAS 
+		atahualpa.entrenar()
+		//EL PORCENTAJE DE AMOR QUE DEVUELVE SILVESTRE
+		assert.equals(0.81, silvestre.porcentajeAmor())
+		//CANTIDAD DE ENTRENAMIENTOS DE SILVESTRE
+		assert.equals(1, silvestre.entrenamientos())
+		//CANTIDAD DE ENTRENAMIENTOS DE WOODY
+		assert.equals(1, woody.entrenamientos())
+
+		//HACER QUE ATAHUALPA ENTRENE A SUS MASCOTAS 
+		atahualpa.entrenar()
+		//EL PORCENTAJE DE AMOR QUE DEVUELVE SILVESTRE
+		assert.equals(0.82, silvestre.porcentajeAmor())
+		//CANTIDAD DE ENTRENAMIENTOS DE SILVESTRE
+		assert.equals(2, silvestre.entrenamientos())
+		//CANTIDAD DE ENTRENAMIENTOS DE WOODY
+		assert.equals(2, woody.entrenamientos() )
+		
+	}
 	
-//	test "3.2 entrenamiento hipersensible" {
-//		hacer que soledad entrene a sus mascotas 
-//		assert.equals(0.22, el porcentaje de amor que devuelve tom)
-//		assert.equals(18.5, el nivel de guardia de pluto)
-//		assert.equals(1, cantidad de entrenamientos de tom)
-//		assert.equals(1, cantidad de entrenamientos de  pluto)
-//
-//		hacer que soledad entrene a sus mascotas 
-//		assert.equals(0.24, el porcentaje de amor que devuelve tom)
-//		assert.equals(22, el nivel de guardia de pluto)
-//		assert.equals(2, cantidad de entrenamientos de tom)
-//		assert.equals(2, cantidad de entrenamientos de  pluto)
-//	}
+	test "3.2 entrenamiento hipersensible" {
+		//hacer que soledad entrene a sus mascotas 
+		soledad.entrenar()
+		
+		//el porcentaje de amor que devuelve tom
+		assert.equals(0.22, tom.porcentajeAmor())
+		//el nivel de guardia de pluto
+		assert.equals(18.5, pluto.guardia())
+		//cantidad de entrenamientos de tom
+		assert.equals(1, tom.entrenamientos())
+		//cantidad de entrenamientos de  pluto
+		assert.equals(1, pluto.entrenamientos())
+		
+		//hacer que soledad entrene a sus mascotas 
+		soledad.entrenar()
+		//el porcentaje de amor que devuelve tom
+		assert.equals(0.24, tom.porcentajeAmor())
+		//el nivel de guardia de pluto
+		assert.equals(22, pluto.guardia())
+		//cantidad de entrenamientos de tom
+		assert.equals(2, tom.entrenamientos())
+		//cantidad de entrenamientos de  pluto
+		assert.equals(2, pluto.entrenamientos())
+	}
 	
+	//Debería decir hacer que teresa entrene sus mascotas, teresa es la persona cálida que usamos para testear
 //	test "3.3 entrenamiento calido" {
 //		hacer que teresa entrene a sus mascotas, tener en cuenta que no se puede porque su nivel de eficacia es menor a 9 (es cero) 
 //		assert.equals(0, cantidad de entrenamientos de tweety)
 //	} 
 	
+	 //hacer que mercedes entrene a sus mascotas, tener en cuenta que no se puede porque es feliz 
+	 //(Es feliz y por eso no puede)
+	test "3.4 Entrenamiento intenso" {
+		//HACER QUE MERCEDES ENTRENE A SUS MASCOTAS, TENER EN CUENTA QUE NO SE PUEDE PORQUE ES FELIZ
+		assert.throwsException({mercedes.entrenarMascotas()})
+		
+		//EL NIVEL DE GUARDIA DE SPIKE
+		assert.equals(40, spike.guardia())
+		//EL NIVEL DE GUARDIA DE SAM
+		assert.equals(15, sam.guardia())
+		//EL NIVEL DE GUARDIA DE DROOPY
+		assert.equals(30, droopy.guardia())
+		//CANTIDAD DE ENTRENAMIENTOS DE SPIKE
+		assert.equals(0, spike.entrenamientos())
+		//CANTIDAD DE ENTRENAMIENTOS DE SAM
+		assert.equals(0, sam.entrenamientos())
+		//CANTIDAD DE ENTRENAMIENTOS DE DROOPY
+		assert.equals(0, droopy.entrenamientos())
+	}
 	
-//	test "3.4 entrenamiento intenso" {
-//		hacer que mercedes entrene a sus mascotas, tener en cuenta que no se puede porque es feliz 
-//		assert.equals(40, el nivel de guardia de spike)
-//		assert.equals(15, el nivel de guardia de sam)
-//		assert.equals(30, el nivel de guardia de droopy)
-//		assert.equals(0, cantidad de entrenamientos de spike)
-//		assert.equals(0, cantidad de entrenamientos de sam)
-//		assert.equals(0, cantidad de entrenamientos de droopy)
-//	}
-	
-//	test "4 club de dueños" {
-//		asegurarse que silvestre, spike, tweety y pluto son las mascotas más seguras del clubDuenios
-//		asegurarse que atahualpa, mercedes y soledad son los fanáticos del clubDuenios
-//	}
-
-	
+	test "4 club de dueños" {
+		//asegurarse que silvestre, spike, tweety y pluto son las mascotas más seguras del clubDuenios
+		assert.equals(#{silvestre, spike, tweety, pluto}, clubDuenios.mascotasMasSeguras())
+		//asegurarse que atahualpa, mercedes y soledad son los fanáticos del clubDuenios
+		assert.equals(#{atahualpa, mercedes, soledad}, clubDuenios.masFanaticos())
+	}
 }
